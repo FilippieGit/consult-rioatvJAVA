@@ -13,6 +13,8 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.ColumnText;
 import java.awt.Desktop;
 import java.io.File;
 import javax.swing.JOptionPane;
@@ -43,12 +45,16 @@ public class Receituario_DAO {
             canvas.setColorFill(barraCor);
             canvas.rectangle(0, 0, 20, 1200); // x, y, largura, altura
             canvas.fill();
+            
+            // Assinatura (ajustando a posição fixa)
+            PdfContentByte cb = writer.getDirectContent();
 
             // Fontes
             Font tituloFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
             Font textoFont = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL, BaseColor.BLACK);
             
             
+
             // Config imagem
 
             // Cabeçalho com imagem e informações do médico
@@ -58,10 +64,10 @@ public class Receituario_DAO {
             // Adiciona a imagem
             String caminhoImagem = "src/images/simbolo.png";
             Image imagem = Image.getInstance(caminhoImagem);
-            
+
             // Define a largura e altura da imagem
             imagem.scaleAbsolute(100, 100);
-            
+
             // Coloca a imagem no PDF
             PdfPCell imagemCell = new PdfPCell(imagem);
             imagemCell.setBorder(0);
@@ -71,13 +77,16 @@ public class Receituario_DAO {
             
 
             // Adiciona informações do médico
-            PdfPCell infoMedicoCell = new PdfPCell(new Paragraph("Nome: " + nomeMedico + "\nCRM: " + crm, textoFont));
+            PdfPCell infoMedicoCell = new PdfPCell(new Paragraph(""));
             infoMedicoCell.setBorder(0);            
-            infoMedicoCell.setHorizontalAlignment(Element.ALIGN_LEFT);
-            infoMedicoCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
             table.addCell(infoMedicoCell);
-            
             doc.add(table);
+
+            
+            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase("Nome: " + nomeMedico, textoFont), 300, 780, 0);
+            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase("CRM: " + textoFont, textoFont), 300, 760, 0);
+            
+
 
             // Título central
             Paragraph titulo = new Paragraph("Receituário", tituloFont);
@@ -89,16 +98,10 @@ public class Receituario_DAO {
             Paragraph pacienteInfo = new Paragraph("Paciente: " + nomePaciente, textoFont);
             doc.add(pacienteInfo);
 
-
-            // Local e data
-            Paragraph localEData = new Paragraph(localData, textoFont);
-            localEData.setSpacingBefore(327);
-            doc.add(localEData);
-
-            // Assinatura
-            Paragraph assinatura = new Paragraph("_________________________\nAss.", textoFont);
-            assinatura.setAlignment(Element.ALIGN_CENTER);
-            doc.add(assinatura);
+            
+            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase(localData, textoFont), 200, 90, 0);
+            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase("_________________________", textoFont), 420, 90, 0);
+            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase("Ass.", textoFont), 420, 70, 0);
 
         } finally {
             if (doc != null) {

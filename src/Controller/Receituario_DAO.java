@@ -92,13 +92,12 @@ public class Receituario_DAO {
 
             // Local e data
             Paragraph localEData = new Paragraph(localData, textoFont);
-            localEData.setSpacingBefore(319);
+            localEData.setSpacingBefore(327);
             doc.add(localEData);
 
             // Assinatura
             Paragraph assinatura = new Paragraph("_________________________\nAss.", textoFont);
             assinatura.setAlignment(Element.ALIGN_CENTER);
-            assinatura.setSpacingAfter(5);
             doc.add(assinatura);
 
         } finally {

@@ -84,7 +84,7 @@ public class Receituario_DAO {
 
             
             ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase("Nome: " + nomeMedico, textoFont), 300, 780, 0);
-            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase("CRM: " + textoFont, textoFont), 300, 760, 0);
+            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER, new Phrase("CRM: " + crm, textoFont), 300, 760, 0);
             
 
 

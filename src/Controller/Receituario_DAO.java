@@ -27,9 +27,9 @@ public class Receituario_DAO {
         OutputStream os = null;
 
         // Entrada de dados
-        String nomeMedico = JOptionPane.showInputDialog(null, "Nome do médico:", "Receituário", -1);
-        String crm = JOptionPane.showInputDialog(null, "CRM do médico:", "Receituário", -1);
-        String nomePaciente = JOptionPane.showInputDialog(null, "Nome do paciente:", "Receituário", -1);
+        String nomeMedico = JOptionPane.showInputDialog(null, "Nome do(a) médico(a):", "Receituário", -1);
+        String crm = JOptionPane.showInputDialog(null, "CRM do(a) médico(a):", "Receituário", -1);
+        String nomePaciente = JOptionPane.showInputDialog(null, "Nome do(a) paciente:", "Receituário", -1);
         String localData = JOptionPane.showInputDialog(null, "Local e data (ex.: São Paulo, 03 de dezembro de 2024):", "Receituário", -1);
 
         try {

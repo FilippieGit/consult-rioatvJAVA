@@ -41,6 +41,11 @@ public class Menu_GUI extends javax.swing.JFrame {
         setUndecorated(true);
 
         comparecimento_btn.setText("Dec. de Comparecimento");
+        comparecimento_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comparecimento_btnActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Consultório");
@@ -136,6 +141,14 @@ public class Menu_GUI extends javax.swing.JFrame {
     private void atestado_btn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atestado_btn1ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_atestado_btn1ActionPerformed
+
+    private void comparecimento_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comparecimento_btnActionPerformed
+        try {
+            Controller.DecComparecimento_DAO.imprimir();
+        } catch (Exception ex) {
+            Logger.getLogger(Menu_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_comparecimento_btnActionPerformed
 
     /**
      * @param args the command line arguments

@@ -9,7 +9,6 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.pdf.PdfContentByte;
-import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.ColumnText;
@@ -26,10 +25,19 @@ public class DecComparecimento_DAO {
 
         // Entrada de dados
         String nomePaciente = JOptionPane.showInputDialog(null, "Nome do(a) paciente:", "Declaração de Comparecimento", -1);
+        if (nomePaciente == null) return;
+        
         String dataConsulta = JOptionPane.showInputDialog(null, "Data da consulta (ex.: 03/12/2024):", "Declaração de Comparecimento", -1);
+        if (dataConsulta == null) return;
+
         String horarioConsulta = JOptionPane.showInputDialog(null, "Período da consulta (ex.: 10h às 12h):", "Declaração de Comparecimento", -1);
+        if (horarioConsulta == null) return;
+
         String finalidade = JOptionPane.showInputDialog(null, "Finalidade da declaração:", "Declaração de Comparecimento", -1);
+        if (finalidade == null) return;
+
         String localData = JOptionPane.showInputDialog(null, "Local e Data (ex.: São Paulo, 03/12/2024):", "Declaração de Comparecimento", -1);
+        if (localData == null) return;
 
         try {
             // Configuração do documento
@@ -103,6 +111,6 @@ public class DecComparecimento_DAO {
         }
 
         // Abrir o PDF gerado
-        Desktop.getDesktop().open(new File("Declaracao_Comparecimento.pdf"));
+        Desktop.getDesktop().open(new File("DecComparecimento.pdf"));
     }
 }

@@ -34,7 +34,7 @@ public class DecComparecimento_DAO {
         try {
             // Configuração do documento
             doc = new Document(PageSize.A4, 40, 40, 25, 50);
-            os = new FileOutputStream("Declaracao_Comparecimento.pdf");
+            os = new FileOutputStream("DecComparecimento.pdf");
             PdfWriter writer = PdfWriter.getInstance(doc, os);
             doc.open();
 

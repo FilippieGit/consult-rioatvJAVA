@@ -62,7 +62,7 @@ public class Receituario_DAO {
             table.setWidthPercentage(100);
 
             // Adiciona a imagem
-            String caminhoImagem = "src/images/simbolo.png";
+            String caminhoImagem = "images/simbolo.png";
             Image imagem = Image.getInstance(caminhoImagem);
 
             // Define a largura e altura da imagem

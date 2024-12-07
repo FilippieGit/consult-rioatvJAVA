@@ -52,7 +52,7 @@ public class DecComparecimento_DAO {
             Font subtituloFont = new Font(Font.FontFamily.HELVETICA, 10, Font.NORMAL);
 
             // Logo
-            String caminhoImagem = "src/images/dentistabg.png"; // Substitua pelo caminho da sua imagem
+            String caminhoImagem = "images/dentistabg.png"; // Substitua pelo caminho da sua imagem
             Image logo = Image.getInstance(caminhoImagem);
             logo.scaleAbsolute(PageSize.A4.getWidth(), PageSize.A4.getHeight());
             logo.setAlignment(15);

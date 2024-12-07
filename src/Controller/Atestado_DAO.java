@@ -50,7 +50,7 @@ public class Atestado_DAO {
             PdfContentByte cb = writer.getDirectContent();
 
             // Adiciona a imagem como fundo
-            String verdeImg = "src/images/verde.png";
+            String verdeImg = "images/verde.png";
             Image imagem = Image.getInstance(verdeImg);
             imagem.setAbsolutePosition(20, 20);
             imagem.scaleAbsolute(PageSize.A4.getWidth()-40, PageSize.A4.getHeight()-40);
